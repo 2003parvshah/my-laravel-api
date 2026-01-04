@@ -15,8 +15,11 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'log' => false,
             'options' => [
-                'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => true,
+              'cluster' => env('PUSHER_APP_CLUSTER'),
+        'host' => env('PUSHER_HOST'), // Will be null in production, which is good
+        'port' => env('PUSHER_PORT', 443),
+        'scheme' => env('PUSHER_SCHEME', 'https'),
+        'useTLS' => env('PUSHER_APP_USETLS', true),
             ],
         ],
         //log : ture for debugging
